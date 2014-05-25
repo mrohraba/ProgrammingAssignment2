@@ -1,0 +1,35 @@
+
+> ## The overall goal of these functions is to create a matrix that is inversable and to compute the inverse matrix. 
+> 
+> ## The function creates the matrix, which has an inverse. 
+> 
+> makeCacheMatrix <- function(x = matrix()) {
++ m <- NULL
++ set <- function(y){
++   x <<- y
++   m <<- NULL
++   }
++ get <- function()x
++ setmean <- function(mean) m <<-mean ## sets mean
++ getmeans <- function()m   ##gets mean
++ list(set = set, get = get,
++     setmean = setmean,
++     getmean = getmean)
++ }
+> 
+> 
+> ## This fucntion computes the inverse of the matrix that was created above. 
+> 
+> cacheSolve <- function(x, ...) {
++   m <- x$getmean()
++   if(!is.nulol(m)) {
++       message("getting cached data")
++       return(m)
++   }
++   
++   data <- x$get()
++   m <- mean(data, ...)
++   x$setmean(m)
++   m
++   solve(x)     ## will give us the inverse of the matrix 
++ }
